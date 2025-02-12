@@ -6,6 +6,8 @@ module.exports = {
   mode: "development",
   output: {
     publicPath: "auto", // ✅ Ensures correct URL resolution
+    filename: "[name].[contenthash].js",
+    clean: true,
   },
   devServer: {
     port: PORT,
