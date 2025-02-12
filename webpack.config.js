@@ -59,10 +59,12 @@ module.exports =(_, argv)=>( {
       exposes: {
         "./MicroApp": "./src/App",  // Exposing the Microfrontend's App component
       },
-      shared: {
-        react: { singleton: true, eager: true },
-        'react-dom': { singleton: true, eager: true },
-      },    }),
+      shared: require("./package.json").dependencies,
+      // shared: {
+      //   react: { singleton: true, eager: true },
+      //   'react-dom': { singleton: true, eager: true },
+      // },
+    }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
