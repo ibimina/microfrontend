@@ -1,11 +1,11 @@
 const { ModuleFederationPlugin } = require("webpack").container;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
+const PORT = process.env.REACT_APP_PORT || 3001;
 module.exports = {
   entry: "./src/index.js",
   mode: "development",
   devServer: {
-    port: 3001,
+    port: PORT,
     },
     module: {
         rules: [
