@@ -57,13 +57,12 @@ module.exports =(_, argv)=>( {
       name: "microfrontend",
       filename: "remoteEntry.js",
       exposes: {
-        "./MicroApp": "./src/App",  // Exposing the Microfrontend's App component
+        "./App": "./src/App",  // Exposing the Microfrontend's App component
       },
-      shared: require("./package.json").dependencies,
-      // shared: {
-      //   react: { singleton: true, eager: true },
-      //   'react-dom': { singleton: true, eager: true },
-      // },
+      shared: {
+        react: { singleton: true, eager: true },
+        'react-dom': { singleton: true, eager: true },
+      },
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
