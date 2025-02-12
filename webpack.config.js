@@ -4,6 +4,9 @@ const PORT = process.env.REACT_APP_PORT || 3001;
 module.exports = {
   entry: "./src/index.js",
   mode: "development",
+  output: {
+    publicPath: "auto", // ✅ Ensures correct URL resolution
+  },
   devServer: {
     port: PORT,
     },
