@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const PORT = process.env.REACT_APP_PORT || 3001;
 module.exports =(_, argv)=>( {
   entry: "./src/index.js",
-  mode: "development",
+  // mode: "development",
   output: {
     // publicPath: "auto", // ✅ Ensures correct URL resolution
     // filename: "[name].[contenthash].js",
@@ -11,8 +11,11 @@ module.exports =(_, argv)=>( {
     publicPath: argv.mode === 'development' ? `http://localhost:3001/` : 'https://microfrontend-six.vercel.app/',
   },
   devServer: {
-    port: PORT,
-    },
+    port: 3001,
+  },
+  resolve: {
+    extensions: [".jsx", ".js", ".json"],
+  },
     module: {
         rules: [
             {
