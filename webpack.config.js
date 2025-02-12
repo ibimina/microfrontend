@@ -1,15 +1,10 @@
 const { ModuleFederationPlugin } = require("webpack").container;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const PORT = process.env.REACT_APP_PORT || 3001;
 const path = require("path");
 
 module.exports = (_, argv) => ({
   entry: "./src/index.js",
-  // mode: "development",
   output: {
-    // publicPath: "auto", // ✅ Ensures correct URL resolution
-    // filename: "[name].[contenthash].js",
-    // clean: true,
     path: path.resolve(__dirname, "build"),
     publicPath: argv.mode === 'development' ? `http://localhost:3001/` : 'https://microfrontend-six.vercel.app/',
   },
